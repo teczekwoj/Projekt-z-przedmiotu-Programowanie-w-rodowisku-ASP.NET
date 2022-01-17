@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LibraryApi.Models.LibraryItem>
+
+@{ ViewData["Title"] = "Stan Biblioteki"; }
+
+<h1>Stan Biblioteki</h1>
+<p>
+    <a asp-action="Create">Dodaj Nowy</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckedOutByWhom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Author)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Edition)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CheckedOutByWhom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Condition)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+    </td>
+</tr>}
+    </tbody>
+</table>
